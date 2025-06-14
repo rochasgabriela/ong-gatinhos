@@ -37,12 +37,12 @@ function App() {
 
   // Gatinhos disponíveis para adoção
   const kittens = [
-    { id: 1, name: 'Luna', age: '3 meses', description: 'Carinhosa e brincalhona' },
-    { id: 2, name: 'Mimi', age: '2 meses', description: 'Tranquila e dócil' },
-    { id: 3, name: 'Bento', age: '4 meses', description: 'Aventureiro e corajoso' },
-    { id: 4, name: 'Mel', age: '5 meses', description: 'Amorosa e sociável' },
-    { id: 5, name: 'Thor', age: '6 meses', description: 'Protetor e leal' },
-    { id: 6, name: 'Nina', age: '3 meses', description: 'Curiosa e inteligente' }
+    { id: 1, name: 'Luna', age: '3 meses', description: 'Carinhosa e brincalhona', color: 'rosa', photo: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=400&fit=crop&crop=face' },
+    { id: 2, name: 'Mimi', age: '2 meses', description: 'Tranquila e dócil', color: 'lilac', photo: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=400&h=400&fit=crop&crop=face' },
+    { id: 3, name: 'Bento', age: '4 meses', description: 'Aventureiro e corajoso', color: 'azul', photo: 'https://images.unsplash.com/photo-1611915387288-fd8d2f5f928b?w=400&h=400&fit=crop&crop=face' },
+    { id: 4, name: 'Mel', age: '5 meses', description: 'Amorosa e sociável', color: 'rosa', photo: 'https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=400&h=400&fit=crop&crop=face' },
+    { id: 5, name: 'Thor', age: '6 meses', description: 'Protetor e leal', color: 'azul', photo: 'https://images.unsplash.com/photo-1606214174585-fe31582cd82d?w=400&h=400&fit=crop&crop=face' },
+    { id: 6, name: 'Nina', age: '3 meses', description: 'Curiosa e inteligente', color: 'lilac', photo: 'https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?w=400&h=400&fit=crop&crop=face' }
   ]
 
   // Depoimentos
@@ -131,10 +131,10 @@ function App() {
       <section id="gatinhos" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Nossos Pequenos <span className="text-pink-600">Amigos</span>
+            <h2 className="section-title text-4xl md:text-5xl mb-4">
+              Nossos Pequenos Amigos
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-nunito">
               Conheça alguns dos gatinhos que estão esperando por uma família amorosa
             </p>
           </div>
@@ -151,10 +151,10 @@ function App() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Como Você Pode <span className="text-purple-600">Ajudar</span>
+            <h2 className="section-title text-4xl md:text-5xl mb-4">
+              Como Você Pode Ajudar
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-nunito">
               Existem várias formas de fazer a diferença na vida dos gatinhos
             </p>
           </div>
@@ -163,13 +163,15 @@ function App() {
             {/* Doar */}
             <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-pink-50 to-pink-100 hover:from-pink-100 hover:to-pink-200 transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-center mb-6">
-                <span className="text-4xl">💝</span>
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-200 to-purple-300 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-2xl text-purple-600">💝</span>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Doar</h3>
-              <p className="text-gray-600 mb-6">
+              <h3 className="section-title text-2xl mb-4">Doar</h3>
+              <p className="text-gray-600 mb-6 font-nunito">
                 Sua doação ajuda a custear alimentação, tratamentos veterinários e cuidados especiais para nossos gatinhos.
               </p>
-              <button className="bg-gradient-to-r from-pink-200 to-pink-300 hover:from-pink-300 hover:to-pink-400 text-pink-800 px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-pink-200" 
+              <button className="bg-gradient-to-r from-pink-200 to-pink-300 hover:from-pink-300 hover:to-pink-400 text-pink-800 px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-pink-200 font-comfortaa" 
                       style={{borderRadius: '50px 20px 50px 20px'}}>
                 ✨ Fazer Doação ✨
               </button>
@@ -178,13 +180,15 @@ function App() {
             {/* Apadrinhar */}
             <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-center mb-6">
-                <span className="text-4xl">🐾</span>
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-200 to-purple-300 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-2xl text-purple-600">🐾</span>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Apadrinhar</h3>
-              <p className="text-gray-600 mb-6">
+              <h3 className="section-title text-2xl mb-4">Apadrinhar</h3>
+              <p className="text-gray-600 mb-6 font-nunito">
                 Torne-se padrinho ou madrinha de um gatinho específico e acompanhe seu desenvolvimento até a adoção.
               </p>
-              <button className="bg-gradient-to-r from-purple-200 to-purple-300 hover:from-purple-300 hover:to-purple-400 text-purple-800 px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-purple-200" 
+              <button className="bg-gradient-to-r from-purple-200 to-purple-300 hover:from-purple-300 hover:to-purple-400 text-purple-800 px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-purple-200 font-comfortaa" 
                       style={{borderRadius: '30px 50px 30px 50px'}}>
                 💜 Ser Padrinho 💜
               </button>
@@ -193,13 +197,15 @@ function App() {
             {/* Voluntariar */}
             <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-rose-50 to-rose-100 hover:from-rose-100 hover:to-rose-200 transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-center mb-6">
-                <span className="text-4xl">🤝</span>
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-200 to-purple-300 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-2xl text-purple-600">🤝</span>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Voluntariar</h3>
-              <p className="text-gray-600 mb-6">
+              <h3 className="section-title text-2xl mb-4">Voluntariar</h3>
+              <p className="text-gray-600 mb-6 font-nunito">
                 Doe seu tempo e ajude nos cuidados diários, eventos de adoção e campanhas de conscientização.
               </p>
-              <button className="bg-gradient-to-r from-rose-200 to-rose-300 hover:from-rose-300 hover:to-rose-400 text-rose-800 px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-rose-200" 
+              <button className="bg-gradient-to-r from-rose-200 to-rose-300 hover:from-rose-300 hover:to-rose-400 text-rose-800 px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-rose-200 font-comfortaa" 
                       style={{borderRadius: '40px 25px 40px 25px'}}>
                 🌸 Ser Voluntário 🌸
               </button>
@@ -212,10 +218,10 @@ function App() {
       <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Histórias de <span className="text-purple-600">Amor</span>
+            <h2 className="section-title text-4xl md:text-5xl mb-4">
+              Histórias de Amor
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-nunito">
               Veja o que nossos adotantes têm a dizer sobre seus novos companheiros
             </p>
           </div>
@@ -233,10 +239,10 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-                Entre em <span className="text-pink-600">Contato</span>
+              <h2 className="section-title text-4xl md:text-5xl mb-4">
+                Entre em Contato
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600 font-nunito">
                 Tem interesse em adotar ou quer saber mais? Envie uma mensagem!
               </p>
             </div>
@@ -323,33 +329,41 @@ function App() {
 
             {/* Contatos */}
             <div>
-              <h4 className="text-lg font-semibold mb-4">Contatos</h4>
+              <h4 className="section-title text-lg font-semibold mb-4">Contatos</h4>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <PhoneIcon className="w-5 h-5" />
-                  <span className="ml-3">(11) 99999-9999</span>
+                  <div className="w-8 h-8 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full flex items-center justify-center mr-3">
+                    <PhoneIcon className="w-4 h-4 text-purple-600" />
+                  </div>
+                  <span className="ml-3 font-nunito">(11) 99999-9999</span>
                 </div>
                 <div className="flex items-center">
-                  <EnvelopeIcon className="w-5 h-5" />
-                  <span className="ml-3">contato@gatinhosdobem.org</span>
+                  <div className="w-8 h-8 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full flex items-center justify-center mr-3">
+                    <EnvelopeIcon className="w-4 h-4 text-purple-600" />
+                  </div>
+                  <span className="ml-3 font-nunito">contato@gatinhosdobem.org</span>
                 </div>
                 <div className="text-gray-300">
-                  <p>São Paulo - SP</p>
+                  <p className="font-nunito">São Paulo - SP</p>
                 </div>
               </div>
             </div>
 
             {/* Redes Sociais */}
             <div>
-              <h4 className="text-lg font-semibold mb-4">Redes Sociais</h4>
+              <h4 className="section-title text-lg font-semibold mb-4">Redes Sociais</h4>
               <div className="space-y-3">
                 <a href="#" className="flex items-center hover:text-pink-300 transition-colors duration-300">
-                  <ChatBubbleLeftRightIcon className="w-5 h-5" />
-                  <span className="ml-3">@gatinhosdobem</span>
+                  <div className="w-8 h-8 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full flex items-center justify-center mr-3">
+                    <ChatBubbleLeftRightIcon className="w-4 h-4 text-purple-600" />
+                  </div>
+                  <span className="ml-3 font-nunito">@gatinhosdobem</span>
                 </a>
                 <a href="#" className="flex items-center hover:text-pink-300 transition-colors duration-300">
-                  <ChatBubbleLeftRightIcon className="w-5 h-5" />
-                  <span className="ml-3">Gatinhos do Bem</span>
+                  <div className="w-8 h-8 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full flex items-center justify-center mr-3">
+                    <ChatBubbleLeftRightIcon className="w-4 h-4 text-purple-600" />
+                  </div>
+                  <span className="ml-3 font-nunito">Gatinhos do Bem</span>
                 </a>
               </div>
             </div>
