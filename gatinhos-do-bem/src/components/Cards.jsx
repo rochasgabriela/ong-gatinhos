@@ -1,8 +1,8 @@
 // Componente para o card de gatinho individual
 export const KittenCard = ({ kitten }) => {
   return (
-    <div className="relative group max-w-sm mx-auto">
-      {/* Card principal com design moderno */}
+    <div className="relative group max-w-sm mx-auto mb-16">
+      {/* Card principal sem o botão */}
       <div className="bg-white/95 backdrop-blur-xl rounded-[2.5rem] shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-6 hover:scale-[1.02] overflow-hidden border border-pink-100/60 hover:border-pink-200/80 relative">
         
         {/* Gradiente decorativo no topo */}
@@ -32,7 +32,7 @@ export const KittenCard = ({ kitten }) => {
           </div>
         </div>
         
-        {/* Seção de informações com espaçamento elegante */}
+        {/* Seção de informações */}
         <div className="px-8 pb-8 text-center space-y-4">
           {/* Nome do gatinho */}
           <div className="relative">
@@ -51,60 +51,58 @@ export const KittenCard = ({ kitten }) => {
           </div>
           
           {/* Descrição */}
-          <p className="text-gray-700 text-sm leading-relaxed font-nunito max-w-xs mx-auto">
+          <p className="text-gray-700 text-sm leading-relaxed font-nunito max-w-xs mx-auto mb-8">
             {kitten.description}
           </p>
-          
-          {/* Espaçamento antes do botão */}
-          <div className="pt-6">
-            {/* Botão super delicado com cores radiantes */}
-            <button 
-              className="w-full py-6 px-10 font-bold text-xl transition-all duration-700 transform hover:scale-110 hover:-translate-y-2 relative overflow-hidden group/btn font-comfortaa shadow-2xl"
-              style={{
-                background: 'linear-gradient(145deg, #f472b6 0%, #ec4899 25%, #d946ef 50%, #c084fc 75%, #a855f7 100%)',
-                color: 'white',
-                borderRadius: '3rem',
-                border: '3px solid rgba(255, 255, 255, 0.3)',
-                boxShadow: '0 20px 60px rgba(236, 72, 153, 0.4), 0 8px 30px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-                textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
-                backgroundSize: '200% 200%',
-                animation: 'gradient-shift 3s ease infinite'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = 'linear-gradient(145deg, #ec4899 0%, #d946ef 25%, #c084fc 50%, #a855f7 75%, #9333ea 100%)';
-                e.target.style.transform = 'scale(1.12) translateY(-8px)';
-                e.target.style.boxShadow = '0 30px 80px rgba(236, 72, 153, 0.5), 0 15px 40px rgba(139, 92, 246, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = 'linear-gradient(145deg, #f472b6 0%, #ec4899 25%, #d946ef 50%, #c084fc 75%, #a855f7 100%)';
-                e.target.style.transform = 'scale(1) translateY(0)';
-                e.target.style.boxShadow = '0 20px 60px rgba(236, 72, 153, 0.4), 0 8px 30px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-              }}
-              onClick={() => alert(`Que lindo! Você tem interesse em adotar ${kitten.name}! 💕 Em breve entraremos em contato.`)}
-            >
-              <span className="relative z-10 flex items-center justify-center gap-4">
-                <span className="text-2xl animate-pulse filter drop-shadow-lg">🐾</span>
-                <span className="font-black tracking-wide text-shadow-lg">Quero Adotar</span>
-                <span className="text-2xl animate-bounce filter drop-shadow-lg">💝</span>
-              </span>
-              
-              {/* Efeito de brilho radiante */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent transform -skew-x-12 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-out"></div>
-              
-              {/* Borda interna brilhante */}
-              <div className="absolute inset-2 rounded-3xl border border-white/30 group-hover/btn:border-white/50 transition-colors duration-300"></div>
-              
-              {/* Partículas flutuantes */}
-              <div className="absolute top-1 left-4 w-1 h-1 bg-white/60 rounded-full animate-ping"></div>
-              <div className="absolute bottom-2 right-6 w-1 h-1 bg-white/60 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
-            </button>
-          </div>
         </div>
         
         {/* Decoração de fundo */}
         <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-r from-pink-100/20 to-purple-100/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+      </div>
+
+      {/* Botão flutuante sobreposto ao card */}
+      <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-4/5 z-20">
+        <button 
+          className="w-full py-6 px-8 font-bold text-lg transition-all duration-700 transform hover:scale-110 hover:-translate-y-3 relative overflow-hidden group/btn font-comfortaa shadow-2xl"
+          style={{
+            background: 'linear-gradient(145deg, #f472b6 0%, #ec4899 25%, #d946ef 50%, #c084fc 75%, #a855f7 100%)',
+            color: 'white',
+            borderRadius: '3rem',
+            border: '3px solid rgba(255, 255, 255, 0.4)',
+            boxShadow: '0 25px 70px rgba(236, 72, 153, 0.5), 0 10px 35px rgba(139, 92, 246, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3)',
+            textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+            backgroundSize: '200% 200%'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = 'linear-gradient(145deg, #ec4899 0%, #d946ef 25%, #c084fc 50%, #a855f7 75%, #9333ea 100%)';
+            e.target.style.transform = 'scale(1.15) translateY(-12px)';
+            e.target.style.boxShadow = '0 35px 90px rgba(236, 72, 153, 0.6), 0 15px 50px rgba(139, 92, 246, 0.5), inset 0 3px 0 rgba(255, 255, 255, 0.4)';
+            e.target.style.borderColor = 'rgba(255, 255, 255, 0.6)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = 'linear-gradient(145deg, #f472b6 0%, #ec4899 25%, #d946ef 50%, #c084fc 75%, #a855f7 100%)';
+            e.target.style.transform = 'scale(1) translateY(0)';
+            e.target.style.boxShadow = '0 25px 70px rgba(236, 72, 153, 0.5), 0 10px 35px rgba(139, 92, 246, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3)';
+            e.target.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+          }}
+          onClick={() => alert(`Que lindo! Você tem interesse em adotar ${kitten.name}! 💕 Em breve entraremos em contato.`)}
+        >
+          <span className="relative z-10 flex items-center justify-center gap-4">
+            <span className="text-xl animate-pulse filter drop-shadow-lg">🐾</span>
+            <span className="font-black tracking-wide text-shadow-lg">Quero Adotar</span>
+            <span className="text-xl animate-bounce filter drop-shadow-lg">💝</span>
+          </span>
+          
+          {/* Efeito de brilho radiante */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent transform -skew-x-12 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-out"></div>
+          
+          {/* Borda interna brilhante */}
+          <div className="absolute inset-2 rounded-3xl border border-white/40 group-hover/btn:border-white/60 transition-colors duration-300"></div>
+          
+          {/* Partículas flutuantes */}
+          <div className="absolute top-2 left-6 w-1.5 h-1.5 bg-white/70 rounded-full animate-ping"></div>
+          <div className="absolute bottom-2 right-8 w-1.5 h-1.5 bg-white/70 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+        </button>
       </div>
     </div>
   )
