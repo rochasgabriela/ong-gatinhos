@@ -410,4 +410,41 @@
   .text-shadow-lg {
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
+
+  /* Text shadow suave para títulos dos cards */
+  .text-shadow-soft {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Shadow suave para cards */
+  .shadow-soft {
+    box-shadow: 0 4px 20px rgba(236, 72, 153, 0.08), 0 2px 8px rgba(168, 85, 247, 0.06);
+  }
+
+  /* Shadow ultra moderna para cards */
+  .shadow-modern {
+    box-shadow: 
+      0 10px 40px rgba(236, 72, 153, 0.12),
+      0 4px 20px rgba(168, 85, 247, 0.08),
+      0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Gradiente radiante delicado para botões */
+  .btn-gradient-delicate {
+    background: linear-gradient(135deg, 
+      rgba(244, 114, 182, 0.8) 0%,
+      rgba(236, 72, 153, 0.9) 25%,
+      rgba(219, 39, 119, 0.8) 50%,
+      rgba(168, 85, 247, 0.9) 75%,
+      rgba(147, 51, 234, 0.8) 100%);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Animação suave para hover dos botões */
+  .btn-hover-glow:hover {
+    box-shadow: 
+      0 8px 32px rgba(236, 72, 153, 0.3),
+      0 4px 16px rgba(168, 85, 247, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
 }

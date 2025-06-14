@@ -41,8 +41,7 @@ function App() {
     { id: 2, name: 'Mimi', age: '2 meses', description: 'Tranquila e dócil', color: 'lilac', photo: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=400&h=400&fit=crop&crop=face' },
     { id: 3, name: 'Bento', age: '4 meses', description: 'Aventureiro e corajoso', color: 'azul', photo: 'https://images.unsplash.com/photo-1611915387288-fd8d2f5f928b?w=400&h=400&fit=crop&crop=face' },
     { id: 4, name: 'Mel', age: '5 meses', description: 'Amorosa e sociável', color: 'rosa', photo: 'https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=400&h=400&fit=crop&crop=face' },
-    { id: 5, name: 'Thor', age: '6 meses', description: 'Protetor e leal', color: 'azul', photo: 'https://images.unsplash.com/photo-1606214174585-fe31582cd82d?w=400&h=400&fit=crop&crop=face' },
-    { id: 6, name: 'Nina', age: '3 meses', description: 'Curiosa e inteligente', color: 'lilac', photo: 'https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?w=400&h=400&fit=crop&crop=face' }
+    { id: 5, name: 'Nina', age: '3 meses', description: 'Curiosa e inteligente', color: 'lilac', photo: 'https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?w=400&h=400&fit=crop&crop=face' }
   ]
 
   // Depoimentos
@@ -56,8 +55,8 @@ function App() {
     {
       id: 2,
       name: 'João Santos',
-      text: 'O Thor é incrível! Muito carinhoso com as crianças e super protetor da família.',
-      kitten: 'Thor'
+      text: 'O Bento é incrível! Muito aventureiro e carinhoso com as crianças, super protetor da família.',
+      kitten: 'Bento'
     },
     {
       id: 3,
@@ -139,9 +138,16 @@ function App() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
             {kittens.map((kitten) => (
-              <KittenCard key={kitten.id} kitten={kitten} />
+              <KittenCard 
+                key={kitten.id}
+                name={kitten.name}
+                age={kitten.age}
+                color={kitten.color}
+                description={kitten.description}
+                image={kitten.photo}
+              />
             ))}
           </div>
         </div>
@@ -215,20 +221,28 @@ function App() {
       </section>
 
       {/* Depoimentos */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-white">
+        <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="section-title text-4xl md:text-5xl mb-4">
+            <h2 className="section-title text-4xl md:text-5xl mb-6">
               Histórias de Amor
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-nunito">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-nunito leading-relaxed">
               Veja o que nossos adotantes têm a dizer sobre seus novos companheiros
             </p>
+            <div className="mt-6 flex justify-center">
+              <div className="w-20 h-1 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full"></div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
             {testimonials.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+              <TestimonialCard 
+                key={testimonial.id}
+                name={testimonial.name}
+                text={testimonial.text}
+                kitten={testimonial.kitten}
+              />
             ))}
           </div>
         </div>

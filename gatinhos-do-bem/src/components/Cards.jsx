@@ -1,165 +1,127 @@
-// Componente para o card de gatinho individual
-export const KittenCard = ({ kitten }) => {
-  return (
-    <div className="relative group max-w-sm mx-auto mb-16">
-      {/* Card principal sem o botão */}
-      <div className="bg-white/95 backdrop-blur-xl rounded-[2.5rem] shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-6 hover:scale-[1.02] overflow-hidden border border-pink-100/60 hover:border-pink-200/80 relative">
-        
-        {/* Gradiente decorativo no topo */}
-        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-pink-300 via-purple-300 to-rose-300 rounded-t-[2.5rem]"></div>
-        
-        {/* Container da foto com padding */}
-        <div className="p-6 pt-8">
-          <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-pink-50/80 group-hover:border-pink-100 transition-all duration-500">
-            <img 
-              src={kitten.photo} 
-              alt={kitten.name}
-              className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            
-            {/* Overlay delicado */}
-            <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-pink-50/20"></div>
-            
-            {/* Coração flutuante */}
-            <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md rounded-full p-3 shadow-lg border border-pink-200/50 group-hover:scale-110 transition-transform duration-300">
-              <span className="text-xl animate-pulse">💖</span>
-            </div>
-            
-            {/* Decoração no canto inferior esquerdo */}
-            <div className="absolute bottom-4 left-4 bg-gradient-to-r from-pink-200/90 to-purple-200/90 backdrop-blur-md rounded-full px-3 py-2 shadow-md border border-white/50">
-              <span className="text-sm font-comfortaa text-pink-800">✨ Disponível</span>
-            </div>
-          </div>
-        </div>
-        
-        {/* Seção de informações */}
-        <div className="px-8 pb-8 text-center space-y-4">
-          {/* Nome do gatinho */}
-          <div className="relative">
-            <h3 className="kitten-name-delicate text-3xl mb-2">
-              {kitten.name}
-            </h3>
-            {/* Linha decorativa sob o nome */}
-            <div className="mx-auto w-16 h-0.5 bg-gradient-to-r from-pink-300 to-purple-300 rounded-full"></div>
-          </div>
-          
-          {/* Idade */}
-          <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl px-4 py-2 inline-block border border-purple-200/50">
-            <p className="text-purple-700 font-semibold text-base font-comfortaa">
-              🎂 {kitten.age}
-            </p>
-          </div>
-          
-          {/* Descrição */}
-          <p className="text-gray-700 text-sm leading-relaxed font-nunito max-w-xs mx-auto mb-8">
-            {kitten.description}
-          </p>
-        </div>
-        
-        {/* Decoração de fundo */}
-        <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-r from-pink-100/20 to-purple-100/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-      </div>
+import { HeartIcon, SparklesIcon } from '@heroicons/react/24/solid';
 
-      {/* Botão flutuante sobreposto ao card */}
-      <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-4/5 z-20">
-        <button 
-          className="w-full py-6 px-8 font-bold text-lg transition-all duration-700 transform hover:scale-110 hover:-translate-y-3 relative overflow-hidden group/btn font-comfortaa shadow-2xl"
-          style={{
-            background: 'linear-gradient(145deg, #f472b6 0%, #ec4899 25%, #d946ef 50%, #c084fc 75%, #a855f7 100%)',
-            color: 'white',
-            borderRadius: '3rem',
-            border: '3px solid rgba(255, 255, 255, 0.4)',
-            boxShadow: '0 25px 70px rgba(236, 72, 153, 0.5), 0 10px 35px rgba(139, 92, 246, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3)',
-            textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
-            backgroundSize: '200% 200%'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = 'linear-gradient(145deg, #ec4899 0%, #d946ef 25%, #c084fc 50%, #a855f7 75%, #9333ea 100%)';
-            e.target.style.transform = 'scale(1.15) translateY(-12px)';
-            e.target.style.boxShadow = '0 35px 90px rgba(236, 72, 153, 0.6), 0 15px 50px rgba(139, 92, 246, 0.5), inset 0 3px 0 rgba(255, 255, 255, 0.4)';
-            e.target.style.borderColor = 'rgba(255, 255, 255, 0.6)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = 'linear-gradient(145deg, #f472b6 0%, #ec4899 25%, #d946ef 50%, #c084fc 75%, #a855f7 100%)';
-            e.target.style.transform = 'scale(1) translateY(0)';
-            e.target.style.boxShadow = '0 25px 70px rgba(236, 72, 153, 0.5), 0 10px 35px rgba(139, 92, 246, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3)';
-            e.target.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-          }}
-          onClick={() => alert(`Que lindo! Você tem interesse em adotar ${kitten.name}! 💕 Em breve entraremos em contato.`)}
-        >
-          <span className="relative z-10 flex items-center justify-center gap-4">
-            <span className="text-xl animate-pulse filter drop-shadow-lg">🐾</span>
-            <span className="font-black tracking-wide text-shadow-lg">Quero Adotar</span>
-            <span className="text-xl animate-bounce filter drop-shadow-lg">💝</span>
-          </span>
-          
-          {/* Efeito de brilho radiante */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent transform -skew-x-12 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-out"></div>
-          
-          {/* Borda interna brilhante */}
-          <div className="absolute inset-2 rounded-3xl border border-white/40 group-hover/btn:border-white/60 transition-colors duration-300"></div>
-          
-          {/* Partículas flutuantes */}
-          <div className="absolute top-2 left-6 w-1.5 h-1.5 bg-white/70 rounded-full animate-ping"></div>
-          <div className="absolute bottom-2 right-8 w-1.5 h-1.5 bg-white/70 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+export function KittenCard({ name, age, color, description, image }) {
+  return (
+    <div className="group bg-white/95 backdrop-blur-md rounded-[2rem] shadow-soft hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 border border-pink-100/30 overflow-hidden max-w-sm mx-auto h-full flex flex-col hover:border-pink-200/50">
+      {/* Decorative sparkles */}
+      <div className="absolute top-4 right-4 z-20">
+        <SparklesIcon className="w-6 h-6 text-pink-300 animate-pulse drop-shadow-sm" />
+      </div>
+      
+      {/* Image container */}
+      <div className="relative h-52 overflow-hidden flex-shrink-0 rounded-t-[2rem]">
+        <img 
+          src={image} 
+          alt={name}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        {/* Elegant gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      </div>
+      
+      {/* Adopt button - positioned right below the photo */}
+      <div className="px-6 pt-5 pb-3">
+        <button className="w-full bg-gradient-to-br from-pink-300/90 via-rose-400/90 to-purple-400/90 hover:from-pink-400/95 hover:via-rose-500/95 hover:to-purple-500/95 text-white font-semibold py-4 px-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-500 group/btn relative overflow-hidden backdrop-blur-sm border border-white/30 btn-hover-glow">
+          <div className="flex items-center justify-center gap-3 relative z-10">
+            <HeartIcon className="w-5 h-5 group-hover/btn:animate-bounce transition-all duration-300 drop-shadow-sm" />
+            <span className="text-base font-bold tracking-wide drop-shadow-sm">Quero Adotar</span>
+          </div>
+          {/* Delicate shimmer effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-out"></div>
+          {/* Soft inner glow */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-300/30 via-rose-300/20 to-purple-300/30 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></div>
         </button>
       </div>
+      
+      {/* Content */}
+      <div className="p-6 pt-2 relative flex-grow">
+        <div className="flex items-center gap-3 mb-4">
+          <h3 className="text-xl font-bold text-gray-800 text-shadow-soft">{name}</h3>
+          <div className="flex-1 h-px bg-gradient-to-r from-pink-300/50 via-purple-300/30 to-transparent"></div>
+        </div>
+        
+        <div className="space-y-3">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-400"></div>
+            <p className="text-sm text-gray-600">
+              <span className="font-semibold text-pink-600">Idade:</span> <span className="text-gray-700">{age}</span>
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-400"></div>
+            <p className="text-sm text-gray-600">
+              <span className="font-semibold text-pink-600">Pelagem:</span> <span className="text-gray-700">{color}</span>
+            </p>
+          </div>
+          <div className="mt-3 p-3 bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl border border-pink-100/50">
+            <p className="text-sm text-gray-700 leading-relaxed italic">{description}</p>
+          </div>
+        </div>
+        
+        {/* Decorative paw prints */}
+        <div className="absolute top-2 right-4 opacity-15">
+          <div className="text-pink-400 text-lg">🐾</div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-// Componente para o card de depoimento
-export const TestimonialCard = ({ testimonial }) => {
+export function TestimonialCard({ name, text, kitten }) {
   return (
-    <div className="relative group max-w-md mx-auto">
-      {/* Card principal */}
-      <div className="bg-white/95 backdrop-blur-xl rounded-[2.5rem] shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-4 hover:scale-[1.02] overflow-hidden border border-purple-100/60 hover:border-purple-200/80 p-8 relative">
-        
-        {/* Gradiente decorativo no topo */}
-        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-purple-300 via-pink-300 to-indigo-300 rounded-t-[2.5rem]"></div>
-        
-        {/* Aspas decorativas */}
-        <div className="text-center mb-6">
-          <div className="text-6xl text-purple-300 opacity-40 font-serif animate-pulse">"</div>
-        </div>
-        
-        {/* Texto do depoimento */}
-        <div className="mb-8">
-          <p className="text-gray-700 leading-relaxed text-lg font-nunito italic text-center max-w-sm mx-auto">
-            {testimonial.text}
-          </p>
-        </div>
-        
-        {/* Informações do autor */}
-        <div className="flex flex-col items-center justify-center space-y-4">
-          {/* Avatar */}
-          <div className="w-20 h-20 bg-gradient-to-br from-pink-400 via-purple-400 to-indigo-400 rounded-full flex items-center justify-center shadow-xl text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300 border-4 border-white/80">
-            {testimonial.name.charAt(0)}
+    <div className="group relative bg-white/85 backdrop-blur-sm rounded-[2rem] p-6 shadow-soft hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border border-pink-100/50 overflow-hidden w-full max-w-sm mx-auto">
+      {/* Decorative gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-50/40 via-transparent to-purple-50/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]"></div>
+      
+      {/* Subtle floating hearts */}
+      <div className="absolute top-3 right-3 opacity-20 group-hover:opacity-50 transition-all duration-500 group-hover:animate-pulse">
+        <div className="text-pink-300 text-lg">�</div>
+      </div>
+      
+      {/* Content wrapper */}
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-pink-200 to-purple-200 flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
+            <span className="text-pink-600 font-bold text-lg">{name.charAt(0)}</span>
           </div>
-          
-          {/* Nome e informações */}
-          <div className="text-center space-y-2">
-            <p className="section-title text-xl">
-              {testimonial.name}
-            </p>
-            <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl px-4 py-2 inline-block border border-purple-200/50">
-              <p className="text-sm text-purple-600 font-nunito flex items-center gap-2 justify-center">
-                <span>Adotou</span>
-                <span className="kitten-name-delicate text-sm">{testimonial.kitten}</span>
-                <span className="text-pink-400 animate-pulse">🐾</span>
-              </p>
+          <div className="flex-1 min-w-0">
+            <h4 className="font-semibold text-gray-800 text-base group-hover:text-pink-600 transition-colors duration-300">{name}</h4>
+            <div className="flex text-pink-400 text-sm gap-0.5 group-hover:text-pink-500 transition-colors duration-300">
+              {Array.from({length: 5}).map((_, i) => (
+                <span key={i} className="group-hover:animate-pulse" style={{animationDelay: `${i * 0.1}s`}}>★</span>
+              ))}
             </div>
           </div>
         </div>
         
-        {/* Decoração de fundo */}
-        <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-purple-100/20 to-pink-100/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+        {/* Testimonial text with better spacing */}
+        <div className="mb-5 px-2">
+          <p className="text-gray-700 text-sm leading-relaxed text-center italic">
+            <span className="text-pink-400 text-lg font-serif">"</span>
+            <span className="mx-1">{text}</span>
+            <span className="text-pink-400 text-lg font-serif">"</span>
+          </p>
+        </div>
         
-        {/* Decoração delicada no canto */}
-        <div className="absolute top-6 right-6 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-          <span className="text-2xl animate-pulse">💕</span>
+        {/* Kitten info with cute styling */}
+        {kitten && (
+          <div className="flex items-center justify-center gap-2 pt-3 border-t border-pink-100/60">
+            <div className="text-pink-300 text-base">🐾</div>
+            <p className="text-xs text-gray-500">
+              Adotou: <span className="text-pink-600 font-semibold">{kitten}</span>
+            </p>
+          </div>
+        )}
+        
+        {/* Decorative bottom line */}
+        <div className="mt-4 flex justify-center">
+          <div className="w-8 h-0.5 bg-gradient-to-r from-pink-300 to-purple-300 rounded-full group-hover:w-12 transition-all duration-500"></div>
         </div>
       </div>
+      
+      {/* Soft hover glow */}
+      <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-r from-pink-200/10 to-purple-200/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
     </div>
-  )
+  );
 }
