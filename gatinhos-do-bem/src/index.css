@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800&family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rosa-pastel: #fdf2f8;
+  --rosa-claro: #fce7f3;
+  --rosa-medio: #f9a8d4;
+  --lilac-pastel: #faf5ff;
+  --lilac-claro: #f3e8ff;
+  --lilac-medio: #d8b4fe;
+}
+
+@layer base {
+  * {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, #fdf2f8 0%, #faf5ff 100%);
+    min-height: 100vh;
+  }
+  
+  body {
+    color: #374151;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  
+  .card-delicado {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff 0%, #fdf2f8 50%, #faf5ff 100%);
+    border: 1px solid rgba(236, 72, 153, 0.1);
+    border-radius: 2rem;
+    box-shadow: 0 15px 35px rgba(236, 72, 153, 0.1), 0 5px 15px rgba(139, 92, 246, 0.05);
+    backdrop-filter: blur(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-delicado::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+    z-index: 1;
+  }
+  
+  .card-delicado:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(236, 72, 153, 0.2), 0 10px 30px rgba(139, 92, 246, 0.1);
+    border-color: rgba(236, 72, 153, 0.3);
+  }
+  
+  .btn-delicado {
+    background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 50%, #fdf2f8 100%);
+    border: 2px solid rgba(236, 72, 153, 0.3);
+    border-radius: 25px 50px 25px 50px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    color: #be185d;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 16px rgba(236, 72, 153, 0.15), 0 3px 8px rgba(139, 92, 246, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Comfortaa', sans-serif;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .btn-delicado:hover {
+    background: linear-gradient(135deg, #f9a8d4 0%, #e879f9 50%, #f0abfc 100%);
+    border-color: rgba(236, 72, 153, 0.5);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(236, 72, 153, 0.25), 0 6px 12px rgba(139, 92, 246, 0.15);
+    color: white;
+  }
+  
+  .btn-delicado::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+    z-index: 1;
+  }
+  
+  .btn-delicado:hover::before {
+    left: 100%;
+  }
+  
+  .btn-delicado span {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .secao-delicada {
+    background: linear-gradient(135deg, #fdf2f8 0%, #faf5ff 40%, #f0f9ff 70%, #ecfdf5 100%);
+    border-radius: 4rem;
+    padding: 5rem 2rem;
+    margin: 3rem 0;
+    border: 1px solid rgba(236, 72, 153, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .secao-delicada::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(249, 168, 212, 0.03) 0%, transparent 70%);
+    animation: gentle-float 20s ease-in-out infinite;
+  }
+  
+  /* Estilo especial para nomes dos gatinhos */
+  .kitten-name {
+    background: linear-gradient(135deg, #f472b6, #ec4899, #db2777, #be185d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(236, 72, 153, 0.3);
+    letter-spacing: 0.5px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .kitten-name::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, #f472b6, #ec4899);
+    border-radius: 1px;
+    opacity: 0.4;
+  }
+  
+  /* Melhoria nos cards de depoimentos */
+  .testimonial-card {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff 0%, #fdf2f8 50%, #faf5ff 100%);
+    border: 1px solid rgba(236, 72, 153, 0.1);
+    border-radius: 2rem;
+    box-shadow: 0 15px 35px rgba(236, 72, 153, 0.1), 0 5px 15px rgba(139, 92, 246, 0.05);
+    backdrop-filter: blur(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+  
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #f9a8d4, #d8b4fe, #c084fc);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .testimonial-card:hover::before {
+    opacity: 1;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(236, 72, 153, 0.2), 0 10px 30px rgba(139, 92, 246, 0.1);
+    border-color: rgba(236, 72, 153, 0.3);
+  }
+  
+  /* Efeito de flutuação suave para os cards de gatinhos */
+  .kitten-card {
+    animation: gentle-float 6s ease-in-out infinite;
+  }
+  
+  .kitten-card:nth-child(even) {
+    animation-delay: -3s;
+  }
+  
+  .kitten-card:nth-child(3n) {
+    animation-delay: -1.5s;
+  }
+  
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  /* Melhorias nos títulos principais */
+  .main-title {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .main-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #f9a8d4, #d8b4fe, #c084fc);
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+  
+  .main-section-title {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .main-section-title::before {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    left: -30px;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    animation: gentle-float 3s ease-in-out infinite;
+  }
+  
+  .main-section-title::after {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    right: -30px;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    animation: gentle-float 3s ease-in-out infinite reverse;
+  }
+  
+  /* Melhorias nos ícones dos cards de ajuda */
+  .help-icon {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .help-icon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+    transition: transform 0.6s;
+    transform: translateX(-100%);
+  }
+  
+  .help-icon:hover::before {
+    transform: translateX(100%);
+  }
+  
+  /* Garantir que os SVGs não fiquem gigantes */
+  svg {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+  }
+  
+  /* Especificamente para ícones pequenos */
+  .w-4, .w-5 {
+    max-width: 1.25rem !important;
+    max-height: 1.25rem !important;
+  }
+  
+  /* Container dos ícones de ajuda */
+  .help-icon svg {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    max-width: 1.25rem !important;
+    max-height: 1.25rem !important;
+  }
+  
+  /* Ícones do rodapé */
+  footer svg {
+    width: 1rem !important;
+    height: 1rem !important;
+    max-width: 1rem !important;
+    max-height: 1rem !important;
+  }
+  
+  /* Estilos para patinhas grandes decorativas */
+  .paw-large {
+    filter: drop-shadow(0 4px 8px rgba(236, 72, 153, 0.15));
+    transition: all 0.3s ease;
+  }
+  
+  .paw-large:hover {
+    filter: drop-shadow(0 6px 12px rgba(236, 72, 153, 0.25));
+    transform: scale(1.05);
+  }
+  
+  .paw-container {
+    position: relative;
+  }
+  
+  .paw-container::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(circle, rgba(249, 168, 212, 0.1) 0%, transparent 60%);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .paw-container:hover::before {
+    opacity: 1;
+  }
+  
+  /* Animação especial para patinhas grandes */
+  @keyframes paw-glow {
+    0%, 100% { 
+      filter: drop-shadow(0 4px 8px rgba(236, 72, 153, 0.15));
+    }
+    50% { 
+      filter: drop-shadow(0 6px 16px rgba(236, 72, 153, 0.3));
+    }
+  }
+  
+  .paw-glow {
+    animation: paw-glow 4s ease-in-out infinite;
+  }
+}
